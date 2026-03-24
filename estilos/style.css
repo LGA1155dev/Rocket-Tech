@@ -11,11 +11,17 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Orbitron:wght@400..900&family=Oxanium:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Science+Gothic:wght@100..900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 :root{
+    --font-h1: "Montserrat";
     --font1: "Rajdhani";
     --font-principal: "Inter";
     --font-tech: "Orbitron";
     --font-header: "Roboto";
+    --font-secondary: "Poppins";
 }
 
 *{
@@ -25,16 +31,54 @@
 }
 
 body{
+    position: relative;
     height: 100vh;
-    background-image: linear-gradient(135deg, #26064b, #2a0e5e, #0a125c, #190b58, #1b0125);
+    background-image: linear-gradient(135deg, #652ea4, #370f73, #1c034a, #020839, #000000);
+    background-size: 300% 300%;
     background-attachment: fixed;
+    background-attachment: fixed;
+    animation: AnimationGradient 10s infinite ease-in-out, AnimationInitial 0s ease-in-out;
+    width: 100%;
+}
+
+@keyframes AnimationGradient{
+    0% {
+        background-position: 0% 50%;
+    }
+    70%{
+        background-position: 50% 100%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes AnimationInitial {
+    0% {
+        background-position: 0% 40%;
+        rotate: -360deg;
+    }
+
+    50%{
+        background-position: 50% 100%;
+    }
+
+    100%{
+        background-position: 0% 50%;
+    }
 }
 
 header{
+    margin: 30px;
+    border-radius: 55px;
+    position: sticky;
+    top: 2px;
+    right: 2px;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    background-color: white;
+    background-color: #ffffffd3;
+
  
 }
 
@@ -43,30 +87,30 @@ nav{
     flex-flow: row wrap;
     gap: 10px;
     align-items: center;
-    margin: 10px;
-    padding: 20px;
+
 }
 
 nav > a{
     color: #500581;
-    padding: 10px;
-    border-radius: 40px;
+    padding: 15px;
     text-decoration: none;
     font-size: 1.4em;
-    font-family: var(--font-tech);
-    border: 1px solid black;
+    font-family: var(--font-header);
 }
 
-nav > a#markup{
+a#markup{
+    border-radius: 45px;
     color: white;
     background-image: linear-gradient(125deg, #190b58, #41318a, #6e5bc4);
 }
 
 nav > a:hover{
-    transition: 1s;
     color: white;
-
-    background-image: linear-gradient(125deg, #190b58, #41318a, #6e5bc4);
+    background-color: #6651c3;
+    transition: background-color 1s, color 1s, transform 1s;
+    border-radius: 20px;
+    transform: translateY(-5px);
+    /*background-image: linear-gradient(125deg, #190b58, #41318a, #6e5bc4);*/
 }
 
 menu{
@@ -89,23 +133,31 @@ menu > a > i{
 }
 
 menu > a > i:hover{
-    color: #260f8a;
-    transition: .5s;
+    color: #491db9;
+    text-shadow: 1px 1px 10px rgba(116, 116, 116, 0.534);
+    transform: translateY(-5px);
+    transition: 1s;
 }
 
 #logo{
-    width: 300px;
+    width: 200px;
+    cursor: pointer;
+}
+
+#logo:hover{
+    transform: translateY(-5px);
+    rotate: 8deg;
+    transition: transform 2s ease-in-out, rotate 1s;
 }
 
 main.principal{
-    background-image: url('../imagens/particles.png');
     background-attachment: fixed;
     display: flex;
     flex-flow: column wrap;
     align-items: flex-start;
     justify-content: center;
-    height: 600px;
-    padding: 30px;
+    height: 100%;
+    padding: 50px;
 
 }
 
@@ -113,39 +165,70 @@ main.principal{
 #secao-frase{
     padding: 40px;
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column ;
 }
 
 #secao-frase > h1{
-
-    font-size: 7em;
-    color: white;
-    font-family: var(--font-header);
-    transform: rotateX(20deg);
-    text-shadow: 1px 2px 11px #00000096;
-
-
-    font-weight: 700;
+    font-size: 7rem;
+    letter-spacing: 1px;
+    color: transparent;
+    /*color: #d8befb;*/
+    font-family: var(--font-principal);
+    font-weight: 800;
+    margin-bottom: 20px;
+    background-image: linear-gradient(115deg, #c0b6f0, #5440a5fd, #100346);
+    text-shadow: 1px 1px 1px #1a073859;
+    background-clip: text;
+    -webkit-background-clip: text;
 }
 
 #secao-frase > p{
-    width: 400px;
-    color:  white;
-    font-size: 1.4em;
-    font-family: var(--font-header);
+    width: 500px;
+    color:  #ceb8ef;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    font-family: var(--font-h1);
+    font-weight: bolder;
 }
 
 span#span-rocket{
-    font-family: var(--font-tech);
-    text-shadow: 2px 2px 2px #e997ff;
-    color: white;
-    font-size: 1.4em;
+    margin-bottom: 20px;
+    font-family: var(--font-h1);
+    font-weight: bolder;
+    color: transparent;
+    background-image: linear-gradient(25deg, #dfd8fb, #41318a, #190b58);
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-size: 1.8em;
 
 }
 
-span#impact-frase{
-    color: #8721f4;
-    text-shadow: 2px 2px 2px #bb3aee;
+
+span#span-rocket > i{
+    font-size: 1.5em;
+}
+
+
+
+button{
+    padding: 15px;
+    margin-top: 20px;
+    font-family: var(--font-principal);
+    width: 50%;
+    font-size: 1.1em;
+    border-radius: 25px;
+    border: 0px;
+    background-color: #61198d;
+    cursor: pointer;
+    color: #d7d7d7;
+}
+
+button:hover{
+    transition: transform 1s ease-in-out, color 1s ease-in-out, background-color 1s ease-in-out, box-shadow .1s ease-in-out;
+    background-color: #7544a7;
+    box-shadow: 2px 1px 9px 6px #c9a8fd43;
+    transform: translateY(-5px);
+    color: white;
 }
 
 
