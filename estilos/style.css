@@ -37,7 +37,7 @@ body{
     background-size: 300% 300%;
     background-attachment: fixed;
     background-attachment: fixed;
-    animation: AnimationGradient 10s infinite ease-in-out, AnimationInitial 0s ease-in-out;
+    animation: AnimationGradient 10s infinite ease-in-out, AnimationInitial 5s ease-in-out;
     width: 100%;
 }
 
