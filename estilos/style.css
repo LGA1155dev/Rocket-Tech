@@ -32,10 +32,9 @@
 
 body{
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
     background-image: linear-gradient(135deg, #652ea4, #370f73, #1c034a, #020839, #000000);
     background-size: 300% 300%;
-    background-attachment: fixed;
     background-attachment: fixed;
     animation: AnimationGradient 10s infinite ease-in-out, AnimationInitial 0s ease-in-out;
     width: 100%;
@@ -69,6 +68,11 @@ body{
 }
 
 header{
+    transform: translateY(0);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    background-color: transparent;
+    transition: background-color 1.5s ease, backdrop-filter 1.5s ease, box-shadow 1.5s ease, transform 1.5s ease;
     margin: 30px;
     border-radius: 55px;
     position: sticky;
@@ -77,9 +81,16 @@ header{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    background-color: #ffffffd3;
-
  
+}
+
+header.scrolled{
+    transform: translateY(2px);
+    background-color: #ffffffd9;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    
 }
 
 nav{
@@ -91,7 +102,8 @@ nav{
 }
 
 nav > a{
-    color: #500581;
+    color: #c373e6;
+    font-weight: 900;
     padding: 15px;
     text-decoration: none;
     font-size: 1.4em;
@@ -129,7 +141,7 @@ menu > a{
 
 menu > a > i{
     font-size: 1.5em;
-    color: #310964;
+    color: #822faf;
 }
 
 menu > a > i:hover{
@@ -210,7 +222,7 @@ span#span-rocket > i{
 
 
 
-button{
+button#more{
     padding: 15px;
     margin-top: 20px;
     font-family: var(--font-principal);
@@ -223,7 +235,7 @@ button{
     color: #d7d7d7;
 }
 
-button:hover{
+button#more:hover{
     transition: transform 1s ease-in-out, color 1s ease-in-out, background-color 1s ease-in-out, box-shadow .1s ease-in-out;
     background-color: #7544a7;
     box-shadow: 2px 1px 9px 6px #c9a8fd43;
@@ -232,8 +244,124 @@ button:hover{
 }
 
 section.services{
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    padding: 30px;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 100vh;
+    background-color: white;
+}
+
+.services.active{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+article.search{
+    padding: 40px;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(25deg , #5c0c81, #34044b, #0d0f96, black);
-    background-attachment: fixed;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+article.search > input{
+    width: 70%;
+    padding: 20px;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+article.search > button{
+    cursor: pointer;
+    background-color: #370f73;
+    color: white;
+    font-size: 1.1em;
+    border-radius: 10px;
+    border: 0px;
+    padding: 20px;
+}
+
+article.search > button:hover{
+    box-shadow: 2px 2px 10px 2px #5e37c1b0;
+    transition: background-color .5s ease-in-out;
+}
+
+#products{
+    padding: 40px;
+    display: flex;
+    flex-flow:  row wrap;
+    width: 100%;
+    height: 700px;
+    gap:  20px;
+    box-shadow: 2px 2px 9px 2px #464646;
+}
+
+#basic-AI{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 350px;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+#basic-AI > img{
+    width: 200px;
+    border-radius: 20px;
+
+;
+}
+
+#basic-AI > button{
+    transform: translateY(-20px);
+    padding: 10px;
+    border: 0px;
+    background-image: linear-gradient(25deg, #980cb8, #1350c0, #000000);
+    border-radius: 20px;
+    font-size: 1.2em;
+    color: white;
+}
+
+#basic-AI > button:hover{
+    transition: transform .5s ease-in-out;
+    transform: translateY(-22px);
+    background-image: linear-gradient(125deg, #6d0d82bb, #0b347fb6, #000000ba);
+    cursor: pointer;
+}
+
+#basic-AI > p{
+    font-size: 2em;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-family: var(--font-tech);
+    color: #105c10;
+}
+
+#basic-AI > p.name-AI{
+    background-image: linear-gradient(25deg, #8e1e9a, #7e268a, #3b7ceb, #111111);
+    -webkit-background-clip: text;
+    font-family: var(--font-h1);
+    color: transparent;
+}
+
+#pro-AI{
+    width: 200px;
+    height: 200px;
+    border: 1px solid red;
+}
+
+#dimond-AI{
+    width: 200px;
+    height: 200px;
+    border: 1px solid red;
 }
