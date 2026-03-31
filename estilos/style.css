@@ -37,18 +37,22 @@ body{
     background-size: 300% 300%;
     background-attachment: fixed;
     animation: AnimationGradient 10s infinite ease-in-out, AnimationInitial 0s ease-in-out;
-    width: 100%;
+    min-width: 100%;
 }
 
 @keyframes AnimationGradient{
     0% {
-        background-position: 0% 50%;
+        background-position: 100% 100%;
+        background-size: cover;
     }
-    70%{
-        background-position: 50% 100%;
+    50%{
+        background-position: 100% 150%;
+        background-size: cover;
     }
     100%{
-        background-position: 0% 50%;
+        background-position: 100% 150%;
+        background-size: cover;
+
     }
 }
 
@@ -75,13 +79,14 @@ header{
     background-color: transparent;
     transition: background-color 1.5s ease, backdrop-filter 1.5s ease, box-shadow 1.5s ease, transform 1.5s ease;
     margin: 30px;
-    border-radius: 55px;
+    border-radius: 60px;
+    padding: 10px;
     position: sticky;
     top: 2px;
     right: 2px;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-evenly;
+    justify-content: flex-start;
  
 }
 
@@ -326,13 +331,19 @@ article.search > button:hover{
     min-width: 400px;
     align-items: center;
     border-radius: 20px;
-
 }
+
+/*section.AI:hover{
+    transform: translateY(-30px);
+    transition: transform .5s ease-out;
+
+}*/
 
 .AI.show{
     opacity: 1;
     transform: translateY(0) scale(1);
 }
+
 
 
 .images{
